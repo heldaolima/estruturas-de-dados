@@ -142,7 +142,7 @@ void init(char tab[][3]) //inicializa o tabuleiro
 int jogo(char user, char pc, char tab[][3])
 {
     int x, y;
-
+    std::cout << "O tabuleiro é uma matriz 3x3, cujas posições são enumeradas de 0 a 2\nx é linha, y é coluna\n";
     std::cout << "Escolha a posição de jogada [x,y]: ";
     scanf("%d,%d", &x, &y);
     
@@ -153,11 +153,13 @@ int jogo(char user, char pc, char tab[][3])
     }
 
     tab[x][y] = user;
-    
+
+    imprime(tab);
+
     int vazio = cont_vazio(tab);
 
     if (vazio > 0) jogada_pc(pc, tab);
-
+    std::cout << "Jogada da máquina:\n";
     imprime(tab);
 
     char r;
@@ -178,8 +180,7 @@ int jogo(char user, char pc, char tab[][3])
                 }
             }
         }
-    } 
-    
+    }
     return r;
 }
 
@@ -190,6 +191,8 @@ int main()
     char user;
     std::cout << "Escolhe 'X' ou 'O'? ";
     std::cin >> user;
+    
+    if (user == '0') user = 'O';
 
     user = toupper(user); //garante que será maiúsculo
     
@@ -203,6 +206,7 @@ int main()
     char tab[3][3];
     
     init(tab);
+    imprime(tab);
 
     char pc;
     if (user == 'X') pc = 'O';
