@@ -123,8 +123,8 @@ void imprime(char tab[][3]) //imprime o tabuleiro
 {
     for (int i = 0; i < 3; i++){
         for (int j = 0; j < 3; j++){
-            if (j == 2) printf("%c\n", tab[i][j]);
-            else printf("%c  ", tab[i][j]);
+            if (j == 2) std::cout << tab[i][j] << std::endl;
+            else std::cout << tab[i][j] << "  ";
         }
     }
     std::cout << std::endl;
@@ -141,18 +141,48 @@ void init(char tab[][3]) //inicializa o tabuleiro
 
 int jogo(char user, char pc, char tab[][3])
 {
-    int x, y;
-    std::cout << "O tabuleiro é uma matriz 3x3, cujas posições são enumeradas de 0 a 2\nx é linha, y é coluna\n";
-    std::cout << "Escolha a posição de jogada [x,y]: ";
-    scanf("%d,%d", &x, &y);
+    int i, j;
+    std::cout << "Escolha a linha: ";
+    std::cin >> i;
     
-    while (x > 2 || x < 0 || y > 2 || y < 0 || tab[x][y] != '*')
+    while (i > 2 || i < 0)
     {
-        std::cout << "Jogada inválida! Escolha a posição de jogada [x,y]: ";
-        scanf("%d, %d", &x, &y);
+        std::cout << "Jogada inválida! Escolha a linha: ";
+        std::cin >> i;
     }
 
-    tab[x][y] = user;
+    std::cout << "Escolha a coluna: ";
+    std::cin >> j;
+
+    while (j > 2 || j < 0)
+    {
+        std::cout << "Jogada inválida! Escolha a coluna: ";
+        std::cin >> j;
+    }
+
+    while (tab[i][j] != '*')
+    {
+        std::cout << "Jogada inválida! A posição já está ocupada. Jogue novamente:\n";
+        std::cout << "Escolha a linha: ";
+        std::cin >> i;
+        
+        while (i > 2 || i < 0)
+        {
+            std::cout << "Jogada inválida! Escolha a linha: ";
+            std::cin >> i;
+        }
+
+        std::cout << "Escolha a coluna: ";
+        std::cin >> j;
+
+        while (j > 2 || j < 0)
+        {
+            std::cout << "Jogada inválida! Escolha a coluna: ";
+            std::cin >> j;
+        }
+    }
+
+    tab[i][j] = user;
 
     imprime(tab);
 
@@ -208,6 +238,7 @@ int main()
     init(tab);
     imprime(tab);
 
+    std::cout << "O tabuleiro é uma matriz 3x3, cujas posições são enumeradas de 0 a 2\n";
     char pc;
     if (user == 'X') pc = 'O';
     else pc = 'X';

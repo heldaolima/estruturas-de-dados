@@ -5,7 +5,7 @@ using std::cout;
 int sum_2d(int tam, int m[][tam])
 {
     int total = 0;
-    for (int i = 0; i < tam; i++){
+    for (int i = 0; i < tam; i++){ )
         for (int j = 0; j < tam; j++) total += m[i][j];
     }
     return total;
