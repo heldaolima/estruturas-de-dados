@@ -32,6 +32,7 @@ int RemoveInicio(ListaSimplesmenteEncadeada *lista, Elem *elem)
     atual = lista->inicio;
     lista->inicio = atual->proximo; //segundo elemento
     *elem = atual->elemento;
+    
     free(atual);
     
     return TRUE;
