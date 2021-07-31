@@ -1,6 +1,5 @@
 //Implementação recursiva do problema da mochila
 #include <stdio.h>
-#include <time.h>
 
 int max(int a, int b) //o máximo entre dois números
 {
@@ -89,18 +88,30 @@ rec (5, 3):
 
 int main()
 {
-    int n = 3;
 
-    int valores[] = {60, 100, 120};
-    int pesos[] = {1, 2, 3};
-    int W = 5;
-
-    clock_t begin = clock();
-    printf("Maior valor: %d\n", knapsack_rec(W, pesos, valores, n));
-    clock_t end = clock();
+    printf("---<Knapsack Problem>---\n");
     
-    double time_spent = (double) (end - begin) / CLOCKS_PER_SEC;
-    printf("Tempo de execução: %lfs\n", time_spent);
+    int n;
+    printf("\nNúmero de itens: ");
+    scanf("%d", &n);
+
+
+    int valores[n], pesos[n], W;
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("\nValor do item [%d]: ", i);
+        scanf("%d", &valores[i]);
+        printf("Peso do item [%d]: ", i);
+        scanf("%d", &pesos[i]);
+    }
+
+    printf("\nCapacidade da mochila: ");
+    scanf("%d", &W);
+
+    printf("----------------------------\n");
+    printf("Maior valor possível: %d\n", knapsack_rec(W, pesos, valores, n));
+    printf("----------------------------\n");
 
     return 0;
 }
