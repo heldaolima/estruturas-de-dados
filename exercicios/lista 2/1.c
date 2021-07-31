@@ -105,7 +105,7 @@ int main()
         case 1:
             printf("Insira a string de parênteses que será analisada: ");
             scanf("%s", string);
-            printf("string: %s\n", string);
+            
             int r = Analise(&l, string);
 
             if (r == -1) printf("Caractere inválido inserido\n");   

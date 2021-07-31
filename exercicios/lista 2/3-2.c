@@ -188,7 +188,7 @@ int Retirar(Lista *l, char *produto, char *marca, int qtd)
         {
             atual->proximo = atual->proximo->proximo;
         }
-        else atual = atual = atual->proximo;
+        else atual = atual->proximo;
     }
 
     return 1;

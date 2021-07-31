@@ -111,10 +111,11 @@ int InsereFim(ListaSimplesmenteEncadeada *lista, Elem novo_elemento)
 
     novo = malloc(sizeof(No));
     if (novo == NULL) return FALSE;
-
+    
     atual->proximo = novo; //coloquei no final
     novo->proximo = NULL; //apontei pro nulo
     novo->elemento = novo_elemento; //inseri o elemento;
+    
     return TRUE;
 
 }
