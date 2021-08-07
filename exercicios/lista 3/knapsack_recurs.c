@@ -109,7 +109,7 @@ int main()
     printf("\nCapacidade da mochila: ");
     scanf("%d", &W);
 
-    printf("----------------------------\n");
+    printf("\n----------------------------\n");
     printf("Maior valor possível: %d\n", knapsack_rec(W, pesos, valores, n));
     printf("----------------------------\n");
 

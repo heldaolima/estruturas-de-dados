@@ -15,7 +15,7 @@ typedef struct node
 
 typedef struct {
     No *inicio;
-    No *fim;
+    No *fim; 
 }Fila;
 
 int Enfileirar(Fila *f, Elem pessoa)
